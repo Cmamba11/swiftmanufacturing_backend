@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 80cba4ebd467c03d42a90356c7680835657b44e3 Cmamba <dcyril299@gmail.com> 1772278775 +0000	commit (initial): Initial commit
+80cba4ebd467c03d42a90356c7680835657b44e3 80cba4ebd467c03d42a90356c7680835657b44e3 Cmamba <dcyril299@gmail.com> 1772278927 +0000	Branch: renamed refs/heads/master to refs/heads/main
+80cba4ebd467c03d42a90356c7680835657b44e3 4af9d377bb2165e45c1ca8fb444de05c5d77b6e0 Cmamba <dcyril299@gmail.com> 1772281500 +0000	commit: Added Linux binary target for Prisma
+4af9d377bb2165e45c1ca8fb444de05c5d77b6e0 7408c76ae92f41d864642bd6ba460aab195decf4 Cmamba <dcyril299@gmail.com> 1772281917 +0000	commit: Move prisma to dependencies for Render
+7408c76ae92f41d864642bd6ba460aab195decf4 2c6a20e45bfe8f56b0efaf80260e6cafed06946a Cmamba <dcyril299@gmail.com> 1772283985 +0000	commit: tsx fix
+2c6a20e45bfe8f56b0efaf80260e6cafed06946a f2c0662a1078f1d180dfd234e18cdd96f083a527 Cmamba <dcyril299@gmail.com> 1772284224 +0000	commit: Fix package.json Json syntax
+f2c0662a1078f1d180dfd234e18cdd96f083a527 f3fccd0cf59a94a21fd07afd3ff44b65d6e7d872 Cmamba <dcyril299@gmail.com> 1772284471 +0000	commit: Remove node_modules
