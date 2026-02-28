@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  name         String
+  role         String
+  passwordHash String
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Product {
+  id                String   @id
+  name              String
+  type              String
+  specification     String
+  size              String
+  unit              String
+  storageLocation   String
+  minStockLevel     Float
+  minQuantityLevel  Float?
+  transactions      Transaction[]
+}
+
+model Customer {
+  id           String        @id
+  name         String
+  contact      String
+  address      String
+  transactions Transaction[]
+}
+
+model Transaction {
+  id              String   @id
+  productId       String
+  product         Product  @relation(fields: [productId], references: [id])
+  type            String
+  quantity        Float
+  weight          Float?
+  customerId      String?
+  customer        Customer? @relation(fields: [customerId], references: [id])
+  referenceNumber String
+  timestamp       BigInt
+  recordedBy      String
+  shift           String?
+  rollsUsed       Float?
+  kgUsed          Float?
+  notes           String?
+  voided          Boolean  @default(false)
+  vehicleId       String?
+}
+
+model IssuingRecord {
+  id             String   @id
+  date           String
+  shift          String
+  machineType    String
+  materialBags   String?
+  rollsIssued    Float?
+  weightIssued   Float?
+  totalInputKg   Float
+  totalIssuedKg  Float
+  timestamp      BigInt
+}
+
+model ProductionRecord {
+  id             String   @id
+  date           String
+  shift          String
+  machineType    String
+  actualOutputKg Float
+  actualCount    Float?
+  rollsUsed      Float?
+  kgUsed         Float?
+  timestamp      BigInt
+}
+
+model MaterialStock {
+  id    String @id @default("master")
+  hd    Float  @default(0)
+  lld   Float  @default(0)
+  exceed Float @default(0)
+  ipa   Float  @default(0)
+  tulane Float @default(0)
+}
+
+model SparePart {
+  id          String @id
+  name        String
+  quantity    Float
+  value       Float
+  machineType String
+}
+
+model SparePartIssuance {
+  id        String @id
+  partId    String
+  quantity  Float
+  issuedTo  String
+  date      String
+  timestamp BigInt
+  notes     String?
+}
